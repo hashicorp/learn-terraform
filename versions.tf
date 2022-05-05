@@ -1,13 +1,13 @@
 terraform {
+/*
+#  cloud {
+#    organization = "Zensar-netgear"
 
-  cloud {
-    organization = "hashicorp-learn"
-
-    workspaces {
-      name = "learn-terraform-cloud"
-    }
-  }
-
+#    workspaces {
+#      name = "learn-terraform-cloud"
+#    }
+#  }
+*/
   required_providers {
     aws = {
       source  = "hashicorp/aws"
