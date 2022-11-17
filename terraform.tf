@@ -1,7 +1,7 @@
 terraform {
 
   cloud {
-    organization = "SuperPopT1"
+    organization = "SuperPopT"
 
     workspaces {
       name = "learn-terraform-cloud"
