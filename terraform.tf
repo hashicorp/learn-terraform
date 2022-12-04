@@ -1,13 +1,15 @@
 terraform {
+/*
+#When using the VCS-driven workflow for Terraform Cloud, you do not need to define the cloud block in your configuration.
 
   cloud {
-    organization = "organization-name"
+    organization = "terraformcloud-practice-1"
 
     workspaces {
       name = "learn-terraform-cloud"
     }
   }
-
+*/
   required_providers {
     aws = {
       source  = "hashicorp/aws"
