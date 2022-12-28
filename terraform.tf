@@ -1,5 +1,6 @@
 terraform {
 
+/*
   cloud {
     organization = "terraform-tutorials-5a3c00"
 
@@ -7,6 +8,7 @@ terraform {
       name = "learn-terraform-cloud"
     }
   }
+*/
 
   required_providers {
     aws = {
