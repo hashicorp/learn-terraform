@@ -1,5 +1,5 @@
 terraform {
-
+/*
   cloud {
     organization = "example-org-0bad12"
 
@@ -7,6 +7,7 @@ terraform {
       name = "learn-terraform-cloud"
     }
   }
+*/
 
   required_providers {
     aws = {
