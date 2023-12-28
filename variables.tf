@@ -12,7 +12,7 @@ variable "instance_name" {
   description = "EC2 instance name"
   default     = "Provisioned by Terraform"
 }
-
+/*
 variable "default_vpc" {
   description = "default AWS vpc"
   type = string
@@ -24,3 +24,4 @@ variable "default_subnet" {
   type = string
   sensitive = true
 }
+*/
