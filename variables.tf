@@ -13,3 +13,14 @@ variable "instance_name" {
   default     = "Provisioned by Terraform"
 }
 
+variable "default_vpc" {
+  description = "default AWS vpc"
+  type = string
+  sensitive = true
+}
+
+variable "default_subnet" {
+  description = "default AWS subnet"
+  type = string
+  sensitive = true
+}
