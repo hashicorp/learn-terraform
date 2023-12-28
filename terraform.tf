@@ -1,5 +1,5 @@
 terraform {
-
+/*
   cloud {
     organization = "GarrisonTech"
 
@@ -7,7 +7,7 @@ terraform {
       name = "terraform-ec2"
     }
   }
-
+*/
   required_providers {
     aws = {
       source  = "hashicorp/aws"
