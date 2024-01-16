@@ -5,11 +5,10 @@ variable "region" {
 
 variable "instance_type" {
   description = "Type of EC2 instance to provision"
-  default     = "t2.micro"
+  default     = "m7g.metal"
 }
 
 variable "instance_name" {
   description = "EC2 instance name"
   default     = "Provisioned by Terraform"
 }
-
