@@ -28,5 +28,6 @@ resource "aws_instance" "ubuntu" {
   tags = {
     Name = var.instance_name
     TestAction = "Direct github edit/commit"
+    Improvement = "This was a commit to iops-XXX-pretend-project-branch"
   }
 }
