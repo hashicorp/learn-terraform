@@ -2,6 +2,8 @@ provider "aws" {
   region = var.region
 }
 
+
+
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -21,6 +23,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "ubuntu" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
+  subnet_id = "subnet-d1b6dd8b"
 
   tags = {
     Name = var.instance_name
