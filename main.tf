@@ -27,5 +27,6 @@ resource "aws_instance" "ubuntu" {
 
   tags = {
     Name = var.instance_name
+    TestAction = "Direct github edit/commit"
   }
 }
