@@ -1,10 +1,10 @@
 terraform {
 
   cloud {
-    organization = "organization-name"
+    organization = "TFC-Unification-Test-Org-1"
 
     workspaces {
-      name = "learn-terraform-cloud"
+      name = "test-unified-provider-joey"
     }
   }
 
