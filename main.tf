@@ -1,28 +1,33 @@
-provider "aws" {
-  region = var.region
+provider "tfe" {
+  version  = "~> 0.53.0"
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
+provider "hcp" {}
+  
+resource "hcp_group" "provider_test_group" {
+  display_name = "provider_test_group"
+  description  = "group created by hcp provider"
 }
 
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
+resource "hcp_project" "provider_test_project" {
+  name        = "provider_test_project"
+  description = "project created by hcp provider"
+}
 
-  tags = {
-    Name = var.instance_name
-  }
+data "hcp_organization" "provider_test_org" {}
+
+data "tfe_team" "provider_test_tfe_team" {
+  name         = hcp_group.provider_test_group.display_name
+  organization = data.hcp_organization.provider_test_org.name
+}
+
+data "tfe_project" "provider_test_tfe_project" {
+  name = hcp_project.provider_test_project.display_name
+  organization = data.hcp_organization.provider_test_org.name
+}
+
+resource "tfe_team_project_access" "admin" {
+  access       = "read"
+  team_id      = tfe_team.provider_test_tfe_team.id
+  project_id   = tfe_project.provider_test_tfe_project.id
 }
