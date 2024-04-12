@@ -2,7 +2,7 @@ provider "tfe" {
   version  = "~> 0.53.0"
 }
 
-provider "hcp" {}
+provider "hcp" { }
   
 resource "hcp_group" "provider_test_group" {
   display_name = "provider_test_group"
