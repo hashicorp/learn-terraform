@@ -3,6 +3,7 @@
 
 terraform {
 
+  /*
   cloud {
     organization = "SOW-CorpInternational"
 
@@ -10,6 +11,7 @@ terraform {
       name = "learn-terraform"
     }
   }
+  */
 
   required_providers {
     aws = {
