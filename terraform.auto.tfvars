@@ -1,2 +1,2 @@
 instance_type = "t2.micro"
-# testing
+# 2 testing
