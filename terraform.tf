@@ -3,13 +3,13 @@
 
 terraform {
 
-  cloud {
-    organization = "DB-Onboarding"
+  # cloud {
+  #   organization = "DB-Onboarding"
 
-    workspaces {
-      name = "learn-terraform"
-    }
-  }
+  #   workspaces {
+  #     name = "learn-terraform"
+  #   }
+  # }
 
   required_providers {
     aws = {
