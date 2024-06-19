@@ -4,7 +4,7 @@
 terraform {
 
   cloud {
-    organization = "organization-name"
+    organization = "DB-Onboarding"
 
     workspaces {
       name = "learn-terraform"
