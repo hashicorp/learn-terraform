@@ -13,3 +13,5 @@ When you set up a Workspace on HCP Terraform, you can link to this repository. H
 You must have an AWS account and provide your AWS Access Key ID and AWS Secret Access Key to HCP Terraform. HCP Terraform encrypts and stores variables using [Vault](https://www.vaultproject.io/). For more information on how to store variables in HCP Terraform, see [our variable documentation](https://www.terraform.io/docs/cloud/workspaces/variables.html).
 
 The values for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` should be saved as environment variables on your workspace.
+
+test 6
