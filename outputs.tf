@@ -1,11 +1,7 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
-output "instance_ami" {
-  value = aws_instance.ubuntu.ami
+output "instance_self_link" {
+  value = google_compute_instance.vm_instance.self_link
 }
 
-output "instance_arn" {
-  value = aws_instance.ubuntu.arn
+output "instance_name" {
+  value = google_compute_instance.vm_instance.name
 }
-
