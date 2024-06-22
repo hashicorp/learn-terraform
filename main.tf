@@ -8,7 +8,8 @@ resource "google_compute_instance" "vm_instance" {
   name         = "poel-test" // me da error cndo uso var.instance_name
   machine_type = var.instance_type
   zone         = "${var.region}-a"
-  tags = ["poel-test-tag"]
+  allow_stopping_for_update = true
+ 
 
   boot_disk {
     initialize_params {
@@ -22,7 +23,8 @@ resource "google_compute_instance" "vm_instance" {
       // Ephemeral IP
     }
   }
-
+  
+  tags = ["poel-test-tag"]
 }
 
 resource "google_storage_bucket" "my-bucket" {
