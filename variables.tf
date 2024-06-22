@@ -8,7 +8,7 @@ variable "region" {
 
 variable "project_id" {
   description = "GCP project ID"
-  default     = null
+  default     = "spa-newlearningdev-dev-001"
 }
 
 variable "instance_type" {
