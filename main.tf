@@ -5,7 +5,7 @@ provider "google" {
 
 resource "google_compute_instance" "vm_instance" {
   project      = var.project_id
-  name         = var.instance_name
+  name         = "poel-instance"
   machine_type = var.instance_type
   zone         = "${var.region}-a"
 
@@ -22,5 +22,5 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 
-  tags = [var.instance_name]
+  tags = ["poel-test"]
 }
