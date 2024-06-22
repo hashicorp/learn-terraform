@@ -4,6 +4,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "vm_instance" {
+  project = var.project_id
   name         = var.instance_name
   machine_type = var.instance_type
   zone         = "${var.region}-a"
