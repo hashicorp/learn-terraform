@@ -18,7 +18,7 @@ variable "instance_type" {
 
 variable "instance_name" {
   description = "GCP instance name"
-  default     = "poel-test-n1-standard-1"
+  default     = "poel-test"
 }
 
 variable "credentials_file" {
