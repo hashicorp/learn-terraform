@@ -1,31 +1,25 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
-provider "aws" {
-  region = var.region
+provider "google" {
+  project = var.project_id
+  region  = var.region
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
+resource "google_compute_instance" "vm_instance" {
+  name         = var.instance_name
+  machine_type = var.instance_type
+  zone         = "${var.region}-a"
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+  network_interface {
+    network = "default"
+    access_config {
+      // Ephemeral IP
+    }
   }
 
-  owners = ["099720109477"] # Canonical
-}
-
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = var.instance_name
-  }
+  tags = [var.instance_name]
 }

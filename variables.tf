@@ -2,16 +2,26 @@
 # SPDX-License-Identifier: MPL-2.0
 
 variable "region" {
-  description = "AWS region"
-  default     = "us-west-1"
+  description = "GCP region"
+  default     = "us-central1"
+}
+
+variable "project_id" {
+  description = "GCP project ID"
+  default     = null
 }
 
 variable "instance_type" {
-  description = "Type of EC2 instance to provision"
-  default     = "t2.large"
+  description = "Type of GCP instance to provision"
+  default     = "n1-standard-1"
 }
 
 variable "instance_name" {
-  description = "EC2 instance name"
+  description = "GCP instance name"
   default     = "Provisioned by Terraform"
+}
+
+variable "credentials_file" {
+  description = "Path to the GCP credentials file"
+  default     = null
 }

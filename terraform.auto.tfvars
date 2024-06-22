@@ -1,3 +1,2 @@
-instance_type = "t2.micro"
-# 2 testing
-
+instance_type = "n1-standard-1"
+project_id    = "your-gcp-project-id"
