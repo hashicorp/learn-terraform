@@ -16,10 +16,10 @@ variable "instance_type" {
   default     = "n1-standard-1"
 }
 
-variable "instance_name" {
-  description = "Type of GCP instance to provision"
-  default     = "poel-instance"
-}
+# variable "instance_name" {
+#   description = "Type of GCP instance to provision"
+#   default     = "poel-instance"
+# }
 
 variable "credentials_file" {
   description = "Path to the GCP credentials file"
