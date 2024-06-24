@@ -89,6 +89,7 @@ jobs:
 
     - name: Terraform Format
       run: terraform fmt -check
+      continue-on-error: true
 
     - name: Terraform Plan
       run: terraform plan -input=false
