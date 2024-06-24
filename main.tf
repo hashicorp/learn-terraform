@@ -49,10 +49,3 @@ resource "google_storage_bucket_iam_member" "bucket_access" {
   role   = "roles/storage.objectAdmin"
   member = "serviceAccount:poel-dev-test@spa-newlearningdev-dev-001.iam.gserviceaccount.com"
 }
-
-# # Upload files to the bucket
-# resource "google_storage_bucket_object" "static_site_src" {
-#   name   = "index.html"
-#   source = "./website/index.html"
-#   bucket = google_storage_bucket.my-bucket.name
-# }
