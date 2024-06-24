@@ -24,7 +24,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        terraform_version: 1.2
+        terraform_version: 1.2.0
 
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v0.4.0
