@@ -13,7 +13,7 @@ variable "project_id" {
 
 variable "instance_type" {
   description = "Type of GCP instance to provision"
-  default     = "n1-standard-2"
+  default     = "n1-standard-1"
 }
 
 # variable "instance_name" {
