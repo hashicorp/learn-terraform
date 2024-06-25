@@ -5,7 +5,7 @@ provider "google" {
 
 resource "google_compute_instance" "vm_instance" {
   project      = var.project_id
-  name         = "poel-vm-test1" // me da error cndo uso var.instance_name
+  name         = "poel-vm-test-2" // me da error cndo uso var.instance_name
   machine_type = var.instance_type
   zone         = "${var.region}-a"
   allow_stopping_for_update = true
@@ -28,7 +28,7 @@ resource "google_compute_instance" "vm_instance" {
 }
 
 resource "google_storage_bucket" "my-bucket" {
-  name                        = "poel-bucket-test1"
+  name                        = "poel-bucket-test-2"
   location                    = "EU"
   project                     = "spa-newlearningdev-dev-001"
   force_destroy               = true
