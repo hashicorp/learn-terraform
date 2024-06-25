@@ -1,31 +1,51 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
-provider "aws" {
-  region = var.region
+provider "google" {
+  project = var.project_id
+  region  = var.region
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
+resource "google_compute_instance" "vm_instance" {
+  project      = var.project_id
+  name         = "poel-vm-test-2" // me da error cndo uso var.instance_name
+  machine_type = var.instance_type
+  zone         = "${var.region}-a"
+  allow_stopping_for_update = true
+ 
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+  network_interface {
+    network = "default"
+    access_config {
+      // Ephemeral IP
+    }
   }
-
-  owners = ["099720109477"] # Canonical
+  
+  tags = ["poel-test-tag"]
 }
 
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
+resource "google_storage_bucket" "my-bucket" {
+  name                        = "poel-bucket-test-2"
+  location                    = "EU"
+  project                     = "spa-newlearningdev-dev-001"
+  force_destroy               = true
+  uniform_bucket_level_access = true
+}
 
-  tags = {
-    Name = var.instance_name
-  }
+resource "google_storage_bucket_iam_binding" "object_access_binding" {
+  bucket = google_storage_bucket.my-bucket.name
+  role   = "roles/storage.objectViewer"
+
+  members = [
+    "serviceAccount:poel-dev-test@spa-newlearningdev-dev-001.iam.gserviceaccount.com"
+  ]
+}
+
+resource "google_storage_bucket_iam_member" "bucket_access" {
+  bucket = google_storage_bucket.my-bucket.name
+  role   = "roles/storage.objectAdmin"
+  member = "serviceAccount:poel-dev-test@spa-newlearningdev-dev-001.iam.gserviceaccount.com"
 }
